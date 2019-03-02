@@ -47,13 +47,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  List colors = [Colors.red, Colors.green, Colors.yellow, Colors.blue, Colors.deepPurpleAccent, Colors.pink];
-  Random random = new Random();
+  final Random _random = Random();
 
-  int index = 0;
+  Color _color = Color(0xFFFFFFFF);
 
-  void changeIndex() {
-    setState(() => index = random.nextInt(6));
+  void changeColor() {
+    setState(() {
+      _color = Color.fromARGB(
+        //or with fromRGBO with fourth arg as _random.nextDouble(),
+        _random.nextInt(256),
+        _random.nextInt(256),
+        _random.nextInt(256),
+        _random.nextInt(256),
+      );
+    });
   }
 
   @override
@@ -93,11 +100,11 @@ class _MyHomePageState extends State<MyHomePage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    changeIndex();
+                    changeColor();
                   });
                 },
                 child: Container(
-                  color: colors[index],
+                  color: _color,
                   child: Text('TURN LIGHTS ON'),
                 ),
               ),
