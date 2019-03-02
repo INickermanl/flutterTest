@@ -46,7 +46,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final Random _random = Random();
 
   Color _color = Color(0xFFFFFFFF);
@@ -105,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Container(
                   color: _color,
-                  child: Text('TURN LIGHTS ON'),
+                  child: Text('TURN LIGHTS ON', style: new TextStyle(fontSize: 24.0),),
                 ),
               ),
             ],
